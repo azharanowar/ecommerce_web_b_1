@@ -12,4 +12,8 @@ class EcommerceController extends Controller
     public function shop() {
         return view('frontEnd.shop.shop');
     }
+
+    public function productDetails() {
+        return view('frontEnd.shop.product-details');
+    }
 }

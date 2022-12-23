@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="logo">
-                    <h1><a href="index-2.html"><img src="{{ asset('frontEndAssets') }}/img/logo.png"></a></h1>
+                    <h1><a href="{{ route('/') }}"><img src="{{ asset('frontEndAssets') }}/img/logo.png"></a></h1>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -68,9 +68,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.html">Home</a></li>
+                    <li class="active"><a href="{{ route('/') }}">Home</a></li>
                     <li><a href="{{ route('shop') }}">Shop page</a></li>
-                    <li><a href="single-product.html">Single product</a></li>
+                    <li><a href="{{ route('product-details') }}">Single product</a></li>
                     <li><a href="cart.html">Cart</a></li>
                     <li><a href="checkout.html">Checkout</a></li>
                     <li><a href="#">Category</a></li>
