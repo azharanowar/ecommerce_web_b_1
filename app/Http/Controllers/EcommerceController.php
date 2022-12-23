@@ -9,4 +9,7 @@ class EcommerceController extends Controller
     public function index() {
         return view('frontEnd.home.home');
     }
+    public function shop() {
+        return view('frontEnd.shop.shop');
+    }
 }
