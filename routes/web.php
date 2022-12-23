@@ -30,3 +30,5 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
 Route::get('/', [EcommerceController::class, 'index'])->name('/');
 Route::get('/shop', [EcommerceController::class, 'shop'])->name('shop');
 Route::get('/product-details', [EcommerceController::class, 'productDetails'])->name('product-details');
+Route::get('/cart', [EcommerceController::class, 'cart'])->name('cart');
+Route::get('/checkout', [EcommerceController::class, 'checkout'])->name('checkout');

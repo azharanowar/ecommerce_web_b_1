@@ -71,8 +71,8 @@
                     <li class="active"><a href="{{ route('/') }}">Home</a></li>
                     <li><a href="{{ route('shop') }}">Shop page</a></li>
                     <li><a href="{{ route('product-details') }}">Single product</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li><a href="{{ route('cart') }}">Cart</a></li>
+                    <li><a href="{{ route('checkout') }}">Checkout</a></li>
                     <li><a href="#">Category</a></li>
                     <li><a href="#">Others</a></li>
                     <li><a href="#">Contact</a></li>
