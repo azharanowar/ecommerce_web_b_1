@@ -64,17 +64,27 @@
                                     <td width="150"><img class="d-block mx-auto" src="{{ $category->image }}" style="height: 50px; width: 50px"></td>
                                     <td class="text-center">
                                         {{ $category->status == 1 ? "Active" : "Inactive" }}
-                                        <br>
-                                        @if($category->status == 1)
-                                            <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-warning btn-sm my-1">Inactive</a>
-                                        @endif
-                                        @if($category->status == 0)
-                                            <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-success btn-sm my-1">Active</a>
-                                        @endif
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-sm my-1">Edit</a>
-                                        <a href="" class="btn btn-danger btn-sm my-1">Delete</a>
+                                        @if($category->status == 1)
+                                            <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-warning btn-sm my-1">Make Inactive</a>
+                                        @endif
+                                        @if($category->status == 0)
+                                            <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-success btn-sm my-1">Make Active</a>
+                                        @endif
+                                        <br>
+
+                                        <form action="{{ route('delete-category') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="category_id"/>
+                                            <button type="submit" class="btn btn-primary btn-sm my-1">Edit</button>
+                                        </form>
+
+                                        <form action="{{ route('delete-category') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="category_id" value="{{ $category->id }}"/>
+                                            <button type="submit" class="btn btn-danger btn-sm my-1">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

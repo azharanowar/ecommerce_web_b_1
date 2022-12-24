@@ -24,4 +24,10 @@ class CategoryController extends Controller
 
         return back()->with('allCategoriesMessage', 'Category status successfully updated.');
     }
+
+    public function deleteCategory(Request $request) {
+        Category::deleteCategory($request);
+
+        return back()->with('allCategoriesMessage', 'Category successfully deleted.');
+    }
 }

@@ -30,6 +30,7 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
     Route::get('/change-status/{id}', [CategoryController::class, 'changeStatus'])->name('change-status');
 
     Route::post('/create-category', [CategoryController::class, 'addCategory'])->name('create-category');
+    Route::post('/delete-category', [CategoryController::class, 'deleteCategory'])->name('delete-category');
 });
 
 Route::get('/', [EcommerceController::class, 'index'])->name('/');
