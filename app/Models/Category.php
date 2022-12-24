@@ -62,3 +62,4 @@ class Category extends Model
 
         self::$category->delete($request->category_id);
     }
+}
