@@ -40,6 +40,9 @@
             <div class="col-lg-7">
                 <div class="card shadow border-0 rounded-lg mt-5">
                     <h4 class="text-center font-weight-light my-3">All Categories</h4>
+                    <h5 class="text-success text-center">
+                        {{ session('allCategoriesMessage') }}
+                    </h5>
                     <div class="card-body">
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
@@ -59,8 +62,20 @@
                                     <td>{{ $i++ }}</td>
                                     <td>{{ $category->category_name }}</td>
                                     <td width="150"><img class="d-block mx-auto" src="{{ $category->image }}" style="height: 50px; width: 50px"></td>
-                                    <td>{{ $category->status == 1 ? "Published" : "Unpublished" }}</td>
-                                    <td>Action</td>
+                                    <td class="text-center">
+                                        {{ $category->status == 1 ? "Active" : "Inactive" }}
+                                        <br>
+                                        @if($category->status == 1)
+                                            <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-warning btn-sm my-1">Inactive</a>
+                                        @endif
+                                        @if($category->status == 0)
+                                            <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-success btn-sm my-1">Active</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="" class="btn btn-primary btn-sm my-1">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm my-1">Delete</a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -31,4 +31,17 @@ class Category extends Model
 
         return self::$imageURL;
     }
+
+    public static function changeCategoryStatus($id) {
+        self::$category = new Category();
+        self::$category = self::$category->find($id);
+
+        if (self::$category->status == 0) {
+            self::$category->status = 1;
+        } else {
+            self::$category->status = 0;
+        }
+
+        self::$category->save();
+    }
 }

@@ -18,4 +18,10 @@ class CategoryController extends Controller
 
         return back()->with('message', 'Category successfully created.');
     }
+
+    public function changeStatus($id) {
+        Category::changeCategoryStatus($id);
+
+        return back()->with('allCategoriesMessage', 'Category status successfully updated.');
+    }
 }
