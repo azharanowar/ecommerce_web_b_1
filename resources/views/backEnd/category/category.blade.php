@@ -72,13 +72,8 @@
                                         @if($category->status == 0)
                                             <a href="{{ route('change-status', ['id' => $category->id]) }}" class="btn btn-success btn-sm my-1">Make Active</a>
                                         @endif
-                                        <br>
 
-                                        <form action="{{ route('delete-category') }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="category_id"/>
-                                            <button type="submit" class="btn btn-primary btn-sm my-1">Edit</button>
-                                        </form>
+                                        <a href="{{ route('edit-category', ['id' => $category->id]) }}" class="btn btn-primary btn-sm my-1">Edit</a>
 
                                         <form action="{{ route('delete-category') }}" method="POST">
                                             @csrf

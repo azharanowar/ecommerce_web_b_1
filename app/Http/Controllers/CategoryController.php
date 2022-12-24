@@ -30,4 +30,18 @@ class CategoryController extends Controller
 
         return back()->with('allCategoriesMessage', 'Category successfully deleted.');
     }
+
+    public function editCategory($id) {
+        return view('backEnd.category.edit-category', [
+            'category'  =>  Category::find($id)
+        ]);
+    }
+
+    public function updateCategory(Request $request) {
+        Category::saveCategory($request);
+
+        return view('backEnd.category.category', [
+            'categories'    =>  Category::all()
+        ])->with('allCategoriesMessage', 'Category successfully updated.');
+    }
 }

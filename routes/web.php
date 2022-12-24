@@ -28,9 +28,11 @@ Route::middleware([ 'auth:sanctum', config('jetstream.auth_session'), 'verified'
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/category', [CategoryController::class, 'index'])->name('category');
     Route::get('/change-status/{id}', [CategoryController::class, 'changeStatus'])->name('change-status');
+    Route::get('/edit-category/{id}', [CategoryController::class, 'editCategory'])->name('edit-category');
 
     Route::post('/create-category', [CategoryController::class, 'addCategory'])->name('create-category');
     Route::post('/delete-category', [CategoryController::class, 'deleteCategory'])->name('delete-category');
+    Route::post('/update-category', [CategoryController::class, 'updateCategory'])->name('update-category');
 });
 
 Route::get('/', [EcommerceController::class, 'index'])->name('/');
