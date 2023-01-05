@@ -39,7 +39,7 @@ class ProductController extends Controller
     public function details($id)
     {
         return view('admin.product.details', [
-            'products' => Product::find($id)
+            'product' => Product::find($id)
         ]);
     }
 
