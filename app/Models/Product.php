@@ -38,4 +38,9 @@ class Product extends Model
         self::$product->save();
         return self::$product;
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

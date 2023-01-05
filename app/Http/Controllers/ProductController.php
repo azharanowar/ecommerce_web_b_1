@@ -31,12 +31,16 @@ class ProductController extends Controller
 
     public function manage()
     {
-        return view('admin.product.manage');
+        return view('admin.product.manage', [
+            'products'  =>  Product::all()
+        ]);
     }
 
-    public function detail($id)
+    public function details($id)
     {
-        return view('admin.product.detail');
+        return view('admin.product.details', [
+            'products' => Product::find($id)
+        ]);
     }
 
     public function edit($id)
