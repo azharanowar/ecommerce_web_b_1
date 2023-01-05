@@ -1,10 +1,19 @@
 @extends('frontEnd.master')
-
 @section('title')
-    Product Details
+    product Details
 @endsection
-
-@section('main-content')
+@section('content')
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -20,28 +29,28 @@
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
                         <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
                             <h2><a href="#">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
                         </div>
                         <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
                             <h2><a href="#">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
                         </div>
                         <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
                             <h2><a href="#">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
                             </div>
                         </div>
                         <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
                             <h2><a href="#">Sony Smart TV - 2015</a></h2>
                             <div class="product-sidebar-price">
                                 <ins>$700.00</ins> <del>$100.00</del>
@@ -70,12 +79,12 @@
                             <div class="col-sm-6">
                                 <div class="product-images">
                                     <div class="product-main-img">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-2.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-2.jpg" alt="">
                                     </div>
                                     <div class="product-gallery">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-thumb-1.jpg" alt="">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-thumb-2.jpg" alt="">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-thumb-3.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-thumb-2.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-thumb-3.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +143,7 @@
                             <div class="related-products-carousel">
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-1.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-1.jpg" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -147,7 +156,7 @@
                                 </div>
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-2.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-2.jpg" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -160,7 +169,7 @@
                                 </div>
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-3.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-3.jpg" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -173,7 +182,7 @@
                                 </div>
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-4.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-4.jpg" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -186,7 +195,7 @@
                                 </div>
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-5.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-5.jpg" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -199,7 +208,7 @@
                                 </div>
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset('frontEndAssets') }}/img/product-6.jpg" alt="">
+                                        <img src="{{ asset('frontEndAsset') }}/img/product-6.jpg" alt="">
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="#" class="view-details-link"><i class="fa fa-link"></i> See details</a>
@@ -217,4 +226,5 @@
             </div>
         </div>
     </div>
+
 @endsection

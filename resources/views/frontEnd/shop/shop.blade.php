@@ -1,10 +1,19 @@
 @extends('frontEnd.master')
-
 @section('title')
     Shop
 @endsection
-
-@section('main-content')
+@section('content')
+    <div class="product-big-title-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="product-bit-title text-center">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
@@ -12,7 +21,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-2.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-2.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -26,7 +35,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-1.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-1.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -40,7 +49,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-3.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-3.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -54,7 +63,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-4.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-4.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -68,7 +77,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-2.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-2.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -82,7 +91,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-1.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-1.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -96,7 +105,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-3.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-3.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -110,7 +119,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-4.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-4.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -124,7 +133,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-2.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-2.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -138,7 +147,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-1.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-1.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -152,7 +161,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-3.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-3.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">
@@ -166,7 +175,7 @@
                 <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset('frontEndAssets') }}/img/product-4.jpg" alt="">
+                            <img src="{{ asset('frontEndAsset') }}/img/product-4.jpg" alt="">
                         </div>
                         <h2><a href="#">Apple new mac book 2015 March :P</a></h2>
                         <div class="product-carousel-price">

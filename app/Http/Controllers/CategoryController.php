@@ -2,46 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index() {
-        return view('backEnd.category.category', [
-            'categories'    =>  Category::all()
+    public function index(){
+        return view('admin.category.category',[
+            'categories'=>Category::all(),
+        ]);
+    }
+    public function saveCategory(Request $request){
+        Category::saveCategory($request);
+        if ($request->cat_id){
+            return redirect(route('category'))->with('message','Info Update successfully');
+        }else{
+            return redirect(route('category'))->with('message','Info save successfully');
+        }
+
+    }
+    public function status($id){
+        Category::status($id);
+        return back()->with('message','status Info update successfully');
+    }
+
+    public function categoryDelete(Request $request){
+        Category::categoryDelete($request);
+        return back()->with('message','Info Delete successfully');
+    }
+    public function categoryEdit($id){
+        return view('admin.category.edit-category',[
+            'categories'=>Category::all(),
+            'category'=>Category::find($id),
         ]);
     }
 
-    public function addCategory(Request $request) {
-        Category::saveCategory($request);
-
-        return back()->with('message', 'Category successfully created.');
-    }
-
-    public function changeStatus($id) {
-        Category::changeCategoryStatus($id);
-
-        return back()->with('allCategoriesMessage', 'Category status successfully updated.');
-    }
-
-    public function deleteCategory(Request $request) {
-        Category::deleteCategory($request);
-
-        return back()->with('allCategoriesMessage', 'Category successfully deleted.');
-    }
-
-    public function editCategory($id) {
-        return view('backEnd.category.edit-category', [
-            'category'  =>  Category::find($id)
-        ]);
-    }
-
-    public function updateCategory(Request $request) {
-        Category::saveCategory($request);
-
-        return view('backEnd.category.category', [
-            'categories'    =>  Category::all()
-        ])->with('allCategoriesMessage', 'Category successfully updated.');
-    }
 }
