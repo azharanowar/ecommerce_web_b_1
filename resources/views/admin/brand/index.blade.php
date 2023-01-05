@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="mt-4 mb-0">
-                                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">submit</button></div>
+                                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block">Create New Brand</button></div>
                             </div>
                         </form>
                     </div>
@@ -53,39 +53,24 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @php $i=1 @endphp
-                            @foreach($brands as $brand)
-                                <tr>
-                                    <td>{{ $i++ }}</td>
-                                    <td>{{ $brand->name }}</td>
-                                    <td>
-                                        <img src="{{ asset($brand->image) }}" alt="" style="width: 50px;height: 50px">
-                                    </td>
-                                    <td>{{ $brand->status == 1 ? 'active' : 'Inactive' }}</td>
-                                    <td class="d-flex">
-                                        <a href="{{ route('edit',['id'=>$brand->id]) }}" class="btn btn-primary btn-sm">edit</a>
-
-                                        @if($brand->status == 1)
-                                            <a href="{{ route('status',['id'=>$brand->id]) }}" class="btn btn-warning btn-sm">Inactive</a>
-                                        @else
-                                            <a href="{{ route('status',['id'=>$brand->id]) }}" class="btn btn-success btn-sm">Active</a>
-                                        @endif
-                                        <form action="{{ route('delete') }}" method="post">
-                                            @csrf
-                                            <input type="hidden" value="{{ $brand->id }}" name="cat_id">
-                                            <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('are you sure Delete this!!')">Delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
+                                @foreach($brands as $brand)
+                                   <tr>
+                                       <td>{{$loop->iteration}}</td>
+                                       <td>{{$brand->name}}</td>
+                                       <td><img src="{{asset($brand->image)}}" alt="" height="60" width="80"/></td>
+                                       <td>{{$brand->status == 1 ? 'Active' : 'Inactive'}}</td>
+                                       <td>
+                                           <a href="{{route('brand.edit', ['id' => $brand->id])}}" class="btn btn-success btn-sm">Edit</a>
+                                           <a href="" class="btn btn-info btn-sm">Update Status</a>
+                                           <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                       </td>
+                                   </tr>
+                                @endforeach
                             </tbody>
-
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 @endsection

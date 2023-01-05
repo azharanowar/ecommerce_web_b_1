@@ -20,6 +20,7 @@ class Product extends Model
         self::$image->move(self::$directory, self::$imageName);
         return self::$directory.self::$imageName;
     }
+
     public static function newProduct($request)
     {
         self::$product = new Product();
@@ -36,6 +37,5 @@ class Product extends Model
         self::$product->image = self::getImageUrl($request);
         self::$product->save();
         return self::$product;
-
     }
 }

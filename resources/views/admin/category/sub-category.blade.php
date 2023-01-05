@@ -66,7 +66,7 @@
                                     <td>{{ $subCategory->sub_category_name }}</td>
                                     <td>{{ $subCategory->status == 1 ? 'active' : 'Inactive' }}</td>
                                     <td class="d-flex">
-                                        <a href="{{ route('sub-edit',['id'=>$subCategory->id]) }}" class="btn btn-primary btn-sm">edit</a>
+                                        <a href="{{ route('sub-edit', ['id' => $subCategory->id]) }}" class="btn btn-primary btn-sm">edit</a>
 
                                         @if($subCategory->status == 1)
                                             <a href="{{ route('sub-status',['id'=>$subCategory->id]) }}" class="btn btn-warning btn-sm">Inactive</a>
