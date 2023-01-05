@@ -87,4 +87,16 @@ class Product extends Model
         self::$product->save();
 
     }
+
+    public static function deleteProduct($id)
+    {
+        self::$product = Product::find($id);
+
+        if (file_exists(self::$product->image))
+        {
+            unlink(self::$product->image);
+        }
+
+        self::$product->delete();
+    }
 }
