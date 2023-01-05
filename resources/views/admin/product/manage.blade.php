@@ -35,7 +35,7 @@
                                     <td>{{ $product->status == 1 ? "Active" : "Inactive" }}</td>
                                     <td>
                                         <a href="{{ route('product.details', ['id' => $product->id]) }}" class="btn btn-info btn-sm">Details</a>
-                                        <a href="" class="btn btn-success btn-sm">Edit</a>
+                                        <a href="{{ route('product.edit', ['id' => $product->id]) }}" class="btn btn-success btn-sm">Edit</a>
                                         <a href="" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
