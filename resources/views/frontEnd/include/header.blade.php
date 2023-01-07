@@ -43,7 +43,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="logo">
-                    <h1><a href="index-2.html"><img src="{{ asset('frontEndAsset') }}/img/logo.png"></a></h1>
+                    <h1><a href="{{ route('home') }}"><img src="{{ asset('frontEndAsset') }}/img/logo.png"></a></h1>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -70,7 +70,7 @@
                     <li class="active"><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('shop') }}">Shop</a></li>
                     @foreach($categories as $category)
-                        <li><a href="{{ route('shop') }}">{{ $category->category_name }}</a></li>
+                        <li><a href="{{ route('shop.category', ['id' => $category->id]) }}">{{ $category->category_name }}</a></li>
                     @endforeach
                 </ul>
             </div>

@@ -24,8 +24,9 @@ use App\Http\Controllers\ProductController;
 //});
 
 Route::get('/',[EcommerceController::class,'index'])->name('home');
-Route::get('/shop',[EcommerceController::class,'shop'])->name('shop');
-Route::get('/product-details',[EcommerceController::class,'productDetails'])->name('product-details');
+Route::get('/shop',[EcommerceController::class,'shopAll'])->name('shop');
+Route::get('/shop/{id}',[EcommerceController::class,'shopByCategory'])->name('shop.category');
+Route::get('/product-details/{id}',[EcommerceController::class,'productDetails'])->name('product-details');
 Route::get('/cart',[EcommerceController::class,'cart'])->name('cart');
 Route::get('/checkout',[EcommerceController::class,'checkout'])->name('checkout');
 

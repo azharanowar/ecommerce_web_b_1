@@ -97,7 +97,7 @@
                                     </div>
                                     <h2><a href="single-product.html">{{ $latest_product->name }}</a></h2>
                                     <div class="product-carousel-price">
-                                        <ins>{{ $latest_product->selling_price }} Taka</ins> <del>{{ $latest_product->regular_price }} Taka</del>
+                                        <ins>{{ $latest_product->selling_price }} Tk</ins> <del>{{ $latest_product->regular_price }} Tk</del>
                                     </div>
                                 </div>
                             @endforeach
