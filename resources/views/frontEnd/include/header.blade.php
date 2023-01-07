@@ -70,7 +70,7 @@
                     <li class="active"><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('shop') }}">Shop</a></li>
                     @foreach($categories as $category)
-                        <li><a href="">{{ $category->category_name }}</a></li>
+                        <li><a href="{{ route('shop') }}">{{ $category->category_name }}</a></li>
                     @endforeach
                 </ul>
             </div>
