@@ -125,11 +125,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <form method="post" action="#" class="shipping_calculator">
-                                    <h2>
-                                        <a class="shipping-calculator-button" data-toggle="collapse" href="#calcalute-shipping-wrap" aria-expanded="false" aria-controls="calcalute-shipping-wrap">Calculate Shipping</a>
-                                    </h2>
-                                </form>
+                                <a href="{{ route('checkout') }}" class="btn btn-primary btn-lg">Checkout</a>
                             </div>
                         </div>
                     </div>
