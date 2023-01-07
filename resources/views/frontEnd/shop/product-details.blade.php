@@ -78,23 +78,24 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="related-products-wrapper">
-                            <h2 class="related-products-title">Related Products</h2>
-                            <div class="related-products-carousel">
+                            <h2 class="related-products-title">Latest Products</h2>
+                            <div class="product-carousel">
                                 @foreach($product->category->products as $product)
                                     <div class="single-product">
-                                    <div class="product-f-image">
-                                        <a href="{{ route('product-details', ['id' => $product->id]) }}"><img src="{{ asset($product->image) }}" alt=""></a>
-                                        <div class="product-hover">
-                                            <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="{{ route('product-details', ['id' => $product->id]) }}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                        <div class="product-f-image">
+                                            <a href="{{ route('product-details', ['id' => $product->id]) }}"><img src="{{ asset($product->image) }}" alt="" class="img-fluid h-100 w-100"></a>
+                                            <div class="product-hover">
+                                                <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                                                <a href="{{ route('product-details', ['id' => $product->id]) }}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            </div>
+                                        </div>
+                                        <h2><a href="{{ route('product-details', ['id' => $product->id]) }}">{{ $product->name }}</a></h2>
+                                        <div class="product-carousel-price">
+                                            <ins>{{ $product->selling_price }} Tk</ins> <del>{{ $product->regular_price }} Tk</del>
                                         </div>
                                     </div>
-                                    <h2><a href="{{ route('product-details', ['id' => $product->id]) }}">{{ $product->name }}</a></h2>
-                                    <div class="product-carousel-price">
-                                        <ins>{{ $product->selling_price }} Tk</ins> <del>{{ $product->regular_price }} Tk</del>
-                                    </div>
-                                </div>
                                 @endforeach
                             </div>
                         </div>
