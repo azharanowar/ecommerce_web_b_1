@@ -14,6 +14,7 @@ class EcommerceController extends Controller
             'latest_products'   =>  Product::where('status', 1)->orderBy('id', 'desc')->take(10)->get(),
             'categories'        =>  Category::where('status', 1)->get(),
             'brands'            =>  Brand::all(),
+            'home_categories'   =>  Category::where('home_status', 1)->get(),
         ]);
     }
     public function shop()

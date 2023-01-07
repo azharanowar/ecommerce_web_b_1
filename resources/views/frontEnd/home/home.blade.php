@@ -124,15 +124,16 @@
         </div>
     </div>
 
+    @foreach($home_categories as $home_category)
     <div class="maincontent-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="latest-product">
-                        <h2 class="section-title">Latest Products</h2>
+                        <h2 class="section-title mt-5">{{ $home_category->category_name }}</h2>
                         <div class="product-carousel">
-                            @foreach($latest_products as $latest_product)
+                            @foreach($home_category->products as $latest_product)
                                 <div class="single-product">
                                     <div class="product-f-image">
                                         <img src="{{ asset($latest_product->image) }}" alt="" class="img-fluid h-100 w-100">
@@ -153,5 +154,6 @@
             </div>
         </div>
     </div>
+    @endforeach
 
 @endsection
