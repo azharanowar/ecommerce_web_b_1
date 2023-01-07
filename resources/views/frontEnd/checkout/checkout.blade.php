@@ -62,7 +62,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-4"></label>
                                     <div class="col-md-8">
-                                        <input type="submit" class="btn btn-dark" value="Place Order"/>
+                                        <input type="submit" class="" value="Place Order"/>
                                     </div>
                                 </div>
                             </form>
@@ -105,7 +105,7 @@
                     </div>
                     <div class="card">
                         <h2 class="text-center">Cart Totals</h2>
-                        <table cellspacing="0">
+                        <table class="table table-bordered" cellspacing="0">
                             <tbody>
                                 <tr class="cart-subtotal">
                                     <th>Tax Amount (20%)</th>
