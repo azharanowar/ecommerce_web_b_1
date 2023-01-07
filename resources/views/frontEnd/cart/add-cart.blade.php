@@ -24,8 +24,7 @@
                             @if(session('message'))
                                 <h4 class="py-4 text-center text-success">{{ session('message') }}</h4>
                             @endif
-                            <form method="post" action="#">
-                                <table cellspacing="0" class="shop_table cart">
+                            <table cellspacing="0" class="shop_table cart">
                                     <thead>
                                     <tr>
                                         <th class="product-remove">&nbsp;</th>
@@ -55,11 +54,11 @@
                                         </td>
                                         <td class="product-quantity">
                                             <div class="quantity buttons_added">
-                                                <form action="" method="POST">
+                                                <form action="{{ route('cart.update', ['id' => $cart_product->id]) }}" method="POST">
 
                                                     @csrf
 
-                                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="{{ $cart_product->quantity }}" min="0" step="1">
+                                                    <input type="number" name="quantity" size="4" class="input-text qty text" title="Qty" value="{{ $cart_product->quantity }}" min="0" step="1">
                                                     <button type="submit">Update</button>
                                                 </form>
                                             </div>
@@ -82,7 +81,6 @@
                                     </tr>
                                     </tbody>
                                 </table>
-                            </form>
                             <div class="cart-collaterals">
                                 <div class="cross-sells">
                                     <h2>You may be interested in...</h2>

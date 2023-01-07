@@ -30,6 +30,7 @@ Route::get('/shop/{id}', [EcommerceController::class, 'shopByCategory'])->name('
 Route::get('/product-details/{id}', [EcommerceController::class, 'productDetails'])->name('product-details');
 Route::post('/cart/add/{id}', [CartController::class, 'index'])->name('cart.add');
 Route::get('/cart/show', [CartController::class, 'show'])->name('cart.show');
+Route::post('/cart/update/{id}', [CartController::class, 'update'])->name('cart.update');
 Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 Route::get('/checkout', [EcommerceController::class, 'checkout'])->name('checkout');
 

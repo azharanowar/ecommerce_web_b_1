@@ -12,18 +12,16 @@ class CartController extends Controller
     public function index(Request $request, $id)
     {
 
-        return Cart::getContent();
         $this->product = Product::find($id);
         Cart::add([
             'id'         =>  $this->product->id,
             'name'       =>  $this->product->name,
             'price'      =>  $this->product->selling_price,
             'quantity'   =>  $request->quantity,
-            'attributes' =>  [
+            'attributes' => [
                 'image'     =>  $this->product->image
-            ],
+            ]
         ]);
-
         return redirect('/cart/show');
     }
 
@@ -37,5 +35,16 @@ class CartController extends Controller
         Cart::remove($id);
 
         return back()->with('message', 'Successfully removed product from cart.');
+    }
+
+    public function update(Request $request, $id) {
+        Cart::update($id, [
+            'quantity'  =>  [
+                'relative'  =>  false,
+                'value'     =>  $request->quantity,
+            ]
+        ]);
+
+        return back()->with('message', 'Cart quantity successfully updated.');
     }
 }
