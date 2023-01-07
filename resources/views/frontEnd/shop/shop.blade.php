@@ -22,7 +22,7 @@
                     <div class="col-md-3 col-sm-6">
                     <div class="single-shop-product">
                         <div class="product-upper">
-                            <img src="{{ asset($product->image) }}" class="img-fluid h-100 w-100" alt="">
+                            <a href="{{ route('product-details', ['id' => $product->id]) }}"><img src="{{ asset($product->image) }}" class="img-fluid h-100 w-100" alt=""></a>
                         </div>
                         <h2><a href="{{ route('product-details', ['id' => $product->id]) }}">{{ $product->name }}</a></h2>
                         <div class="product-carousel-price">

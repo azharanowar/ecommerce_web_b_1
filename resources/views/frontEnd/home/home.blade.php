@@ -89,13 +89,13 @@
                             @foreach($latest_products as $latest_product)
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset($latest_product->image) }}" alt="" class="img-fluid h-100 w-100">
+                                        <a href="{{ route('product-details', ['id' => $latest_product->id]) }}"><img src="{{ asset($latest_product->image) }}" alt="" class="img-fluid h-100 w-100"></a>
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            <a href="{{ route('product-details', ['id' => $latest_product->id]) }}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                         </div>
                                     </div>
-                                    <h2><a href="single-product.html">{{ $latest_product->name }}</a></h2>
+                                    <h2><a href="{{ route('product-details', ['id' => $latest_product->id]) }}">{{ $latest_product->name }}</a></h2>
                                     <div class="product-carousel-price">
                                         <ins>{{ $latest_product->selling_price }} Tk</ins> <del>{{ $latest_product->regular_price }} Tk</del>
                                     </div>
@@ -115,7 +115,7 @@
                     <div class="brand-wrapper">
                         <div class="brand-list">
                             @foreach($brands as $brand)
-                                <a href=""><img src="{{ asset($brand->image) }}" class="img-fluid" style="height: 140px; width: 170px;" alt="{{ $brand->name }}" title="{{ $brand->name }}"></a>
+                                <a href="#"><img src="{{ asset($brand->image) }}" class="img-fluid" style="height: 140px; width: 170px;" alt="{{ $brand->name }}" title="{{ $brand->name }}"></a>
                             @endforeach
                         </div>
                     </div>
@@ -136,15 +136,15 @@
                             @foreach($home_category->products as $latest_product)
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <img src="{{ asset($latest_product->image) }}" alt="" class="img-fluid h-100 w-100">
+                                        <a href="{{ route('product-details', ['id' => $latest_product->id]) }}"><img src="{{ asset($latest_product->image) }}" alt="" class="img-fluid h-100 w-100"></a>
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="single-product.html" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            <a href="{{ route('product-details', ['id' => $latest_product->id]) }}" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                         </div>
                                     </div>
-                                    <h2><a href="single-product.html">{{ $latest_product->name }}</a></h2>
+                                    <h2><a href="{{ route('product-details', ['id' => $latest_product->id]) }}">{{ $latest_product->name }}</a></h2>
                                     <div class="product-carousel-price">
-                                        <ins>{{ $latest_product->selling_price }} Taka</ins> <del>{{ $latest_product->regular_price }} Taka</del>
+                                        <ins>{{ $latest_product->selling_price }} Tk</ins> <del>{{ $latest_product->regular_price }} Tk</del>
                                     </div>
                                 </div>
                             @endforeach
