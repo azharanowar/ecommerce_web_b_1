@@ -69,12 +69,9 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('shop') }}">Shop</a></li>
-                    <li><a href="{{ route('product-details') }}">Single product</a></li>
-                    <li><a href="{{ route('cart') }}">Cart</a></li>
-                    <li><a href="{{ route('checkout') }}">Checkout</a></li>
-                    <li><a href="#">Category</a></li>
-                    <li><a href="#">Others</a></li>
-                    <li><a href="#">Contact</a></li>
+                    @foreach($categories as $category)
+                        <li><a href="">{{ $category->category_name }}</a></li>
+                    @endforeach
                 </ul>
             </div>
         </div>
