@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,12 +24,14 @@ use App\Http\Controllers\ProductController;
 //    return view('welcome');
 //});
 
-Route::get('/',[EcommerceController::class,'index'])->name('home');
-Route::get('/shop',[EcommerceController::class,'shopAll'])->name('shop');
-Route::get('/shop/{id}',[EcommerceController::class,'shopByCategory'])->name('shop.category');
-Route::get('/product-details/{id}',[EcommerceController::class,'productDetails'])->name('product-details');
-Route::get('/cart',[EcommerceController::class,'cart'])->name('cart');
-Route::get('/checkout',[EcommerceController::class,'checkout'])->name('checkout');
+Route::get('/', [EcommerceController::class, 'index'])->name('home');
+Route::get('/shop', [EcommerceController::class, 'shopAll'])->name('shop');
+Route::get('/shop/{id}', [EcommerceController::class, 'shopByCategory'])->name('shop.category');
+Route::get('/product-details/{id}', [EcommerceController::class, 'productDetails'])->name('product-details');
+Route::post('/cart/add/{id}', [CartController::class, 'index'])->name('cart.add');
+Route::get('/cart/show', [CartController::class, 'show'])->name('cart.show');
+Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::get('/checkout', [EcommerceController::class, 'checkout'])->name('checkout');
 
 
 

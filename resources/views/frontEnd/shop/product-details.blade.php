@@ -35,12 +35,19 @@
                                     <div class="product-inner-price">
                                         <ins>{{ $product->selling_price }} Tk</ins> <del>{{ $product->regular_price }} Tk</del>
                                     </div>
-                                    <form action="#" class="cart">
+
+
+                                    <form action="{{ route('cart.add', ['id' => $product->id]) }}" method="POST" class="cart">
+
+                                        @csrf
+
                                         <div class="quantity">
                                             <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
                                         <button class="add_to_cart_button" type="submit">Add to cart</button>
                                     </form>
+
+
                                     <div class="product-inner-category">
                                         <p>Category: <a href="{{ route('shop.category', ['id' => $product->category_id]) }}">{{ $product->category->category_name }}</a>. Brand: <a href="">{{ $product->brand->name }}</a>.</p>
                                     </div>

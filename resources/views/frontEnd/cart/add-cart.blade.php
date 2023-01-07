@@ -18,59 +18,12 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
-                        <form action="#">
-                            <input type="text" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form>
-                    </div>
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                        <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="{{ asset('frontEndAsset') }}/img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="product-content-right">
                         <div class="woocommerce">
+                            @if(session('message'))
+                                <h4 class="py-4 text-center text-success">{{ session('message') }}</h4>
+                            @endif
                             <form method="post" action="#">
                                 <table cellspacing="0" class="shop_table cart">
                                     <thead>
@@ -84,30 +37,38 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr class="cart_item">
+                                    @foreach($cart_products as $cart_product)
+                                        <tr class="cart_item">
                                         <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="#">×</a>
+                                            <a title="Remove this item" class="remove" href="{{ route('cart.remove', ['id' => $cart_product->id]) }}" onclick="return confirm('Are you sure do remove this product from cart?')">X</a>
                                         </td>
                                         <td class="product-thumbnail">
-                                            <a href="single-product.html"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{ asset('frontEndAsset') }}/img/product-thumb-2.jpg"></a>
+                                            <a href="single-product.html">
+                                                <img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="{{ asset($cart_product->attributes->image) }}">
+                                            </a>
                                         </td>
                                         <td class="product-name">
-                                            <a href="single-product.html">Ship Your Idea</a>
+                                            <a href="{{ route('product-details', ['id' => $cart_product->id]) }}">{{ $cart_product->name }}</a>
                                         </td>
                                         <td class="product-price">
-                                            <span class="amount">£15.00</span>
+                                            <span class="amount">{{ $cart_product->price }} Tk</span>
                                         </td>
                                         <td class="product-quantity">
                                             <div class="quantity buttons_added">
-                                                <input type="button" class="minus" value="-">
-                                                <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
-                                                <input type="button" class="plus" value="+">
+                                                <form action="" method="POST">
+
+                                                    @csrf
+
+                                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="{{ $cart_product->quantity }}" min="0" step="1">
+                                                    <button type="submit">Update</button>
+                                                </form>
                                             </div>
                                         </td>
                                         <td class="product-subtotal">
-                                            <span class="amount">£15.00</span>
+                                            <span class="amount">{{ $cart_product->price * $cart_product->price }} Tk</span>
                                         </td>
                                     </tr>
+                                    @endforeach
                                     <tr>
                                         <td class="actions" colspan="6">
                                             <div class="coupon">
