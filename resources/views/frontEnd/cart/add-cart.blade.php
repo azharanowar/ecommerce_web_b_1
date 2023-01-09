@@ -120,6 +120,7 @@
                                             <th>Order Total</th>
                                             <td><strong><span class="amount">{{ $sum = $sum + $taxCost + $shippingCost }} Tk</span></strong> </td>
                                         </tr>
+                                        <?php Session::put('order_total', $sum);?>
                                         </tbody>
                                     </table>
                                 </div>

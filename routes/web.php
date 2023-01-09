@@ -9,6 +9,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CustomerAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::get('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.r
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/order/new', [CheckoutController::class, 'newOrder'])->name('order.new');
 Route::get('/order/complete', [CheckoutController::class, 'completeOrder'])->name('completed.order');
+
+
+Route::post('/customer/logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.logout');
 
 
 

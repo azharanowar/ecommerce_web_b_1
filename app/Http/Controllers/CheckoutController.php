@@ -26,6 +26,9 @@ class CheckoutController extends Controller
         $this->customer->mobile = $request->mobile;
         $this->customer->save();
 
+        Session::put('customer_id', $this->customer->id);
+        Session::put('customer_name', $this->customer->name);
+
         $this->order = new Order();
         $this->order->customer_id = $this->customer->id;
         $this->order->order_total = Session::get('order_total');
@@ -45,7 +48,11 @@ class CheckoutController extends Controller
             $this->orderDetails->product_price = $item->price;
             $this->orderDetails->product_quantity = $item->quantity;
             $this->orderDetails->save();
+
+            Cart::remove($item->id);
         }
+
+
 
 
         return redirect('/order/complete');
