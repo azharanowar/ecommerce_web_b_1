@@ -37,7 +37,7 @@
                                     </thead>
                                     <tbody>
 
-                                    @php($sum = 0)
+                                    @php($productCost = 0)
 
                                     @foreach($cart_products as $cart_product)
                                         <tr class="cart_item">
@@ -71,7 +71,7 @@
                                             </td>
                                         </tr>
 
-                                        @php($sum += $cart_product->price * $cart_product->quantity)
+                                        @php($productCost += $cart_product->price * $cart_product->quantity)
 
                                     @endforeach
                                     </tbody>
@@ -106,21 +106,21 @@
                                             <th>Tax Amount (20%)</th>
                                             <td>
                                                 <span class="amount">
-                                                    {{ $taxCost = $sum * 20 / 100 }} Tk
+                                                    {{ $taxCost = $productCost * 20 / 100 }} Tk
                                                 </span>
                                             </td>
                                         </tr>
                                         <tr class="shipping">
                                             <th>Shipping Amount (10%)</th>
                                             <td>
-                                                {{ $shippingCost = $sum * 10 / 100 }} Tk
+                                                {{ $shippingCost = $productCost * 10 / 100 }} Tk
                                             </td>
                                         </tr>
                                         <tr class="order-total">
                                             <th>Order Total</th>
-                                            <td><strong><span class="amount">{{ $sum = $sum + $taxCost + $shippingCost }} Tk</span></strong> </td>
+                                            <td><strong><span class="amount">{{ $total = $productCost + $taxCost + $shippingCost }} Tk</span></strong> </td>
                                         </tr>
-                                        <?php Session::put('order_total', $sum);?>
+                                        <?php Session::put('order_total', $productCost);?>
                                         </tbody>
                                     </table>
                                 </div>

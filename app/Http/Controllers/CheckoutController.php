@@ -20,29 +20,27 @@ class CheckoutController extends Controller
 
     public function newOrder(Request $request) {
 
-//        if (Session::get('customer_id')) {
-//            $this->customer = Customer::find(Session::get('customer_id'));
-//        } else {
-//
-//        }
+        if (Session::get('customer_id')) {
+            $this->customer = Customer::find(Session::get('customer_id'));
+        } else {
+            $this->validate($request, [
+                'name'              =>  'required',
+                'email'             =>  'required|unique:customers,email',
+                'mobile'            =>  'required|unique:customers,mobile',
+                'password'          =>  'required',
+                'delivery_address'  =>  'required',
+            ]);
 
-        $this->validate($request, [
-            'name'              =>  'required',
-            'email'             =>  'required|unique:customers,email',
-            'mobile'            =>  'required|unique:customers,mobile',
-            'password'          =>  'required',
-            'delivery_address'  =>  'required',
-        ]);
+            $this->customer = new Customer();
+            $this->customer->name = $request->name;
+            $this->customer->email = $request->email;
+            $this->customer->password = bcrypt($request->password);
+            $this->customer->mobile = $request->mobile;
+            $this->customer->save();
 
-        $this->customer = new Customer();
-        $this->customer->name = $request->name;
-        $this->customer->email = $request->email;
-        $this->customer->password = bcrypt($request->password);
-        $this->customer->mobile = $request->mobile;
-        $this->customer->save();
-
-        Session::put('customer_id', $this->customer->id);
-        Session::put('customer_name', $this->customer->name);
+            Session::put('customer_id', $this->customer->id);
+            Session::put('customer_name', $this->customer->name);
+        }
 
         $this->order = new Order();
         $this->order->customer_id = $this->customer->id;
