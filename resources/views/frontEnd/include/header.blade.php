@@ -51,7 +51,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="shopping-item">
-                    <a href="{{ route('cart.show') }}">Cart - <span class="cart-amunt">{{ Session::get('order_total') }}</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
+                    <a href="{{ route('cart.show') }}">Cart - <span class="cart-amunt">@if(Session::get('order_total')) {{ Session::get('order_total') }} @else {{ 0 }} @endif</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                 </div>
             </div>
         </div>

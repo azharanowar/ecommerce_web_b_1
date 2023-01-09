@@ -19,6 +19,21 @@ class CheckoutController extends Controller
     }
 
     public function newOrder(Request $request) {
+
+//        if (Session::get('customer_id')) {
+//            $this->customer = Customer::find(Session::get('customer_id'));
+//        } else {
+//
+//        }
+
+        $this->validate($request, [
+            'name'              =>  'required',
+            'email'             =>  'required|unique:customers,email',
+            'mobile'            =>  'required|unique:customers,mobile',
+            'password'          =>  'required',
+            'delivery_address'  =>  'required',
+        ]);
+
         $this->customer = new Customer();
         $this->customer->name = $request->name;
         $this->customer->email = $request->email;
@@ -51,6 +66,10 @@ class CheckoutController extends Controller
 
             Cart::remove($item->id);
         }
+
+        Session::forget('order_total');
+        Session::forget('tax_total');
+        Session::forget('tax_total');
 
 
 

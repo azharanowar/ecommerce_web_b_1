@@ -31,31 +31,36 @@
                                 <div class="form-group row">
                                     <label class="col-md-4">Full Name</label>
                                     <div class="col-md-8">
-                                        <input type="text" class="form-control" name="name" placeholder="Your full name..." required/>
+                                        <input type="text" class="form-control" name="name" placeholder="Your full name..."/>
+                                        <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : '' }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-4">Email Address</label>
                                     <div class="col-md-8">
-                                        <input type="email" class="form-control" name="email" placeholder="Your email address..." autocomplete="email" required/>
+                                        <input type="email" class="form-control" name="email" placeholder="Your email address..." autocomplete="email"/>
+                                        <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : '' }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-4">Password</label>
                                     <div class="col-md-8">
-                                        <input type="password" class="form-control" name="password" placeholder="Your password..." autocomplete="password" required/>
+                                        <input type="password" class="form-control" name="password" placeholder="Your password..." autocomplete="password"/>
+                                        <span class="text-danger">{{ $errors->has('password') ? $errors->first('password') : '' }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-4">Mobile Number</label>
                                     <div class="col-md-8">
-                                        <input type="number" class="form-control" name="mobile" placeholder="Your mobile number..." required/>
+                                        <input type="number" class="form-control" name="mobile" placeholder="Your mobile number..."/>
+                                        <span class="text-danger">{{ $errors->has('mobile') ? $errors->first('mobile') : '' }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-md-4">Delivery Address</label>
                                     <div class="col-md-8">
                                         <textarea class="form-control" rows="5" name="delivery_address"></textarea>
+                                        <span class="text-danger">{{ $errors->has('delivery_address') ? $errors->first('delivery_address') : '' }}</span>
                                     </div>
                                 </div>
                                 <div class="form-group row">
