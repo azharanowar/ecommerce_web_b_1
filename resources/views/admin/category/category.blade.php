@@ -55,28 +55,28 @@
                            <tbody>
                            @php $i=1 @endphp
                            @foreach($categories as $category)
-                           <tr>
-                               <td>{{ $i++ }}</td>
-                               <td>{{ $category->category_name }}</td>
-                               <td>
-                                   <img src="{{ asset($category->image) }}" alt="" style="width: 50px;height: 50px">
-                               </td>
-                               <td>{{ $category->status == 1 ? 'active' : 'Inactive' }}</td>
-                               <td class="d-flex">
-                                   <a href="{{ route('edit',['id'=>$category->id]) }}" class="btn btn-primary btn-sm">edit</a>
+                               <tr>
+                                   <td>{{ $i++ }}</td>
+                                   <td>{{ $category->category_name }}</td>
+                                   <td>
+                                       <img src="{{ asset($category->image) }}" alt="" style="width: 50px;height: 50px">
+                                   </td>
+                                   <td>{{ $category->status == 1 ? 'active' : 'Inactive' }}</td>
+                                   <td class="d-flex">
+                                       <a href="{{ route('edit',['id'=>$category->id]) }}" class="btn btn-primary btn-sm">edit</a>
 
-                                   @if($category->status == 1)
-                                       <a href="{{ route('status',['id'=>$category->id]) }}" class="btn btn-warning btn-sm">Inactive</a>
-                                   @else
-                                       <a href="{{ route('status',['id'=>$category->id]) }}" class="btn btn-success btn-sm">Active</a>
-                                   @endif
-                                   <form action="{{ route('delete') }}" method="post">
-                                       @csrf
-                                       <input type="hidden" value="{{ $category->id }}" name="cat_id">
-                                       <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('are you sure Delete this!!')">Delete</button>
-                                   </form>
-                               </td>
-                           </tr>
+                                       @if($category->status == 1)
+                                           <a href="{{ route('status',['id'=>$category->id]) }}" class="btn btn-warning btn-sm">Inactive</a>
+                                       @else
+                                           <a href="{{ route('status',['id'=>$category->id]) }}" class="btn btn-success btn-sm">Active</a>
+                                       @endif
+                                       <form action="{{ route('delete') }}" method="post">
+                                           @csrf
+                                           <input type="hidden" value="{{ $category->id }}" name="cat_id">
+                                           <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('are you sure Delete this!!')">Delete</button>
+                                       </form>
+                                   </td>
+                               </tr>
                            @endforeach
                            </tbody>
 

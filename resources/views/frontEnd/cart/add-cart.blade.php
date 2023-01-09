@@ -107,7 +107,6 @@
                                             <td>
                                                 <span class="amount">
                                                     {{ $taxCost = $sum * 20 / 100 }} Tk
-                                                    @php($sum += $taxCost)
                                                 </span>
                                             </td>
                                         </tr>
@@ -115,12 +114,11 @@
                                             <th>Shipping Amount (10%)</th>
                                             <td>
                                                 {{ $shippingCost = $sum * 10 / 100 }} Tk
-                                                @php($sum += $shippingCost)
                                             </td>
                                         </tr>
                                         <tr class="order-total">
                                             <th>Order Total</th>
-                                            <td><strong><span class="amount">{{ $sum }} Tk</span></strong> </td>
+                                            <td><strong><span class="amount">{{ $sum = $sum + $taxCost + $shippingCost }} Tk</span></strong> </td>
                                         </tr>
                                         </tbody>
                                     </table>

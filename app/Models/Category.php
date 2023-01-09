@@ -37,7 +37,7 @@ class Category extends Model
     }
 
     public static function status($id){
-        self::$category =Category::find($id);
+        self::$category = Category::find($id);
         if (self::$category->status == 1){
             self::$category->status = 0;
         }else{
