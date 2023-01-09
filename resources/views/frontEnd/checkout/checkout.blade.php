@@ -18,13 +18,82 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
+                <div class="col-md-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="text-center mb-3" style="margin: 3rem 0;">My Cart Summery</h2>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Product Info</th>
+                                    <th>Unit Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                @php($sum = 0)
+
+                                @foreach($cart_products as $cart_product)
+                                    <tr>
+                                        <td>{{ $cart_product->name }}</td>
+                                        <td>{{ $cart_product->price }}</td>
+                                        <td>{{ $cart_product->quantity }}</td>
+                                        <td>{{ $cart_product->price * $cart_product->quantity }} Tk</td>
+                                    </tr>
+
+                                    @php($sum += $cart_product->price * $cart_product->quantity)
+
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h2 class="text-center">Cart Totals</h2>
+                        <table class="table table-bordered" cellspacing="0">
+                            <tbody>
+                            <tr class="cart-subtotal">
+                                <th>Tax Amount (20%)</th>
+                                <td>
+                                        <span class="amount">
+                                            {{ $taxCost = $sum * 20 / 100 }} Tk
+                                        </span>
+                                </td>
+                            </tr>
+                            <tr class="shipping">
+                                <th>Shipping Amount (10%)</th>
+                                <td>
+                                    {{ $shippingCost = $sum * 10 / 100 }} Tk
+                                </td>
+                            </tr>
+                            <tr class="order-total">
+                                <th>Order Total</th>
+                                <td><strong><span class="amount">{{ $orderTotal = $sum + $taxCost + $shippingCost }} Tk</span></strong> </td>
+                            </tr>
+                            </tbody>
+
+                            <?php
+
+                                Session::put('order_total', $orderTotal);
+                                Session::put('tax_total', $taxCost);
+                                Session::put('shipping_total', $shippingCost);
+
+                            ?>
+
+                        </table>
+                    </div>
+                </div>
                 <div class="col-md-7">
                     <div class="card">
                         <div class="card-header">
                             <h2 class="text-center mb-3" style="margin: 3rem 0;">Checkout Form</h2>
                         </div>
                         <div class="card-body">
-                            <form action="" method="POST">
+                            <form action="{{ route('order.new') }}" method="POST">
 
                                 @csrf
 
@@ -38,6 +107,12 @@
                                     <label class="col-md-4">Email Address</label>
                                     <div class="col-md-8">
                                         <input type="email" class="form-control" name="email" placeholder="Your email address..." autocomplete="email" required/>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">Password</label>
+                                    <div class="col-md-8">
+                                        <input type="password" class="form-control" name="password" placeholder="Your password..." autocomplete="password" required/>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -69,66 +144,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2 class="text-center mb-3" style="margin: 3rem 0;">My Cart Summery</h2>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Product Info</th>
-                                        <th>Unit Price</th>
-                                        <th>Quantity</th>
-                                        <th>Total Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                @php($sum = 0)
-
-                                @foreach($cart_products as $cart_product)
-                                    <tr>
-                                        <td>{{ $cart_product->name }}</td>
-                                        <td>{{ $cart_product->price }}</td>
-                                        <td>{{ $cart_product->quantity }}</td>
-                                        <td>{{ $cart_product->price * $cart_product->quantity }} Tk</td>
-                                    </tr>
-
-                                    @php($sum += $cart_product->price * $cart_product->quantity)
-
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <h2 class="text-center">Cart Totals</h2>
-                        <table class="table table-bordered" cellspacing="0">
-                            <tbody>
-                                <tr class="cart-subtotal">
-                                    <th>Tax Amount (20%)</th>
-                                    <td>
-                                        <span class="amount">
-                                            {{ $taxCost = $sum * 20 / 100 }} Tk
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr class="shipping">
-                                    <th>Shipping Amount (10%)</th>
-                                    <td>
-                                        {{ $shippingCost = $sum * 10 / 100 }} Tk
-                                    </td>
-                                </tr>
-                                <tr class="order-total">
-                                    <th>Order Total</th>
-                                    <td><strong><span class="amount">{{ $sum = $sum + $taxCost + $shippingCost }} Tk</span></strong> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
