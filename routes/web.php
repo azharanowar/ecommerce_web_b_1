@@ -43,7 +43,7 @@ Route::get('/order/complete', [CheckoutController::class, 'completeOrder'])->nam
 
 Route::get('/customer/login', [CustomerAuthController::class, 'customerLogin'])->name('customer.login');
 Route::post('/customer/login', [CustomerAuthController::class, 'customerLoginCheck'])->name('customer.login');
-Route::get('/customer/register', [CustomerAuthController::class, 'customerRegister'])->name('customer.register');
+Route::post('/customer/register', [CustomerAuthController::class, 'customerRegister'])->name('customer.register');
 Route::post('/customer/logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.logout');
 
 Route::get('/customer/dashboard', [CustomerDashboardController::class, 'dashboard'])->name('customer.dashboard')->middleware('customer');

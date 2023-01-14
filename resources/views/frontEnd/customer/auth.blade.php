@@ -59,7 +59,7 @@
                             <h2 class="text-center mb-3" style="margin: 3rem 0;">Register Form</h2>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('order.new') }}" method="POST">
+                            <form action="{{ route('customer.register') }}" method="POST">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-md-4">Full Name</label>
