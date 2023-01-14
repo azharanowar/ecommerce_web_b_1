@@ -11,6 +11,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\CustomerDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::post('/customer/login', [CustomerAuthController::class, 'customerLoginChe
 Route::get('/customer/register', [CustomerAuthController::class, 'customerRegister'])->name('customer.register');
 Route::post('/customer/logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.logout');
 
+Route::get('/customer/dashboard', [CustomerDashboardController::class, 'dashboard'])->name('customer.dashboard');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
