@@ -20,4 +20,11 @@ class AdminOrderController extends Controller
             'order'    =>   Order::find($id),
         ]);
     }
+
+    public function invoice($id)
+    {
+        return view('admin.order.order-invoice', [
+            'order'     => Order::find($id),
+        ]);
+    }
 }

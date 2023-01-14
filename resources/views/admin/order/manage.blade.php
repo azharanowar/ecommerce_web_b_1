@@ -34,8 +34,8 @@
                             <td>{{ $order->order_date }}</td>
                             <td>{{ $order->order_status }}</td>
                             <td>
-                                <a href="{{ route('admin.order-details', ['id' => $order->id]) }}" class="btn btn-secondary btn-sm">Details</a>
-                                <a href="{{ route('admin.order-invoice', ['id' => $order->id]) }}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{ route('admin.order-details', ['id' => $order->id]) }}" class="btn btn-success btn-sm">Details</a>
+                                <a href="{{ route('admin.order-invoice', ['id' => $order->id]) }}" class="btn btn-secondary btn-sm">Invoice</a>
                                 <a href="{{ route('admin.order-delete', ['id' => $order->id]) }}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this product?')">Delete</a>
                             </td>
                         </tr>
