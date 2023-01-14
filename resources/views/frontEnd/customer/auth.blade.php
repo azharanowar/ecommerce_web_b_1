@@ -22,6 +22,9 @@
                     <div class="card">
                         <div class="card-header">
                             <h2 class="text-center mb-3" style="margin: 3rem 0;">Login Form</h2>
+                            @if (session('message'))
+                                <h4 class="text-danger text-center">{{ session('message') }}</h4>
+                            @endif
                         </div>
                         <div class="card-body">
                             <form action="{{ route('customer.login') }}" method="POST">
