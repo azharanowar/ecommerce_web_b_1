@@ -47,6 +47,7 @@ Route::post('/customer/register', [CustomerAuthController::class, 'customerRegis
 Route::post('/customer/logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.logout');
 
 Route::get('/customer/dashboard', [CustomerDashboardController::class, 'dashboard'])->name('customer.dashboard')->middleware('customer');
+Route::get('/customer/dashboard/all-orders', [CustomerDashboardController::class, 'allOrders'])->name('customer.all-orders')->middleware('customer');
 
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {

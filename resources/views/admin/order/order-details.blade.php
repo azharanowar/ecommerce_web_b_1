@@ -26,11 +26,11 @@
                     </tr>
                     <tr>
                         <th>Tax Total</th>
-                        <td>{{ $order->tax_total }}</td>
+                        <td>{{ $order->tax_total }}TK.</td>
                     </tr>
                     <tr>
                         <th>Shipping Total</th>
-                        <td>{{ $order->shipping_total }}</td>
+                        <td>{{ $order->shipping_total }}TK.</td>
                     </tr>
                     <tr>
                         <th>Customer Info</th>

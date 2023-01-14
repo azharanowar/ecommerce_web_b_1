@@ -24,7 +24,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item"><a href="">My Dashboard</a></li>
                                 <li class="list-group-item"><a href="">My Profile</a></li>
-                                <li class="list-group-item"><a href="">My Order</a></li>
+                                <li class="list-group-item"><a href="{{ route('customer.all-orders') }}">My Order</a></li>
                                 <li class="list-group-item"><a href="">Change Password</a></li>
                             </ul>
                         </div>
