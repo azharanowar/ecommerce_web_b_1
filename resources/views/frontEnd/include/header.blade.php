@@ -32,7 +32,7 @@
                                 </ul>
                             </li>
                         @else
-                            <li><a href=""><i class="fa fa-user"></i> My Account</a></li>
+                            <li><a href="{{ route('customer.login') }}"><i class="fa fa-user"></i> My Account</a></li>
                         @endif
                     </ul>
                 </div>

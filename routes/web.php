@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\AdminOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,9 @@ Route::post('/order/new', [CheckoutController::class, 'newOrder'])->name('order.
 Route::get('/order/complete', [CheckoutController::class, 'completeOrder'])->name('completed.order');
 
 
+Route::get('/customer/login', [CustomerAuthController::class, 'customerLogin'])->name('customer.login');
+Route::post('/customer/login', [CustomerAuthController::class, 'customerLoginCheck'])->name('customer.login');
+Route::get('/customer/register', [CustomerAuthController::class, 'customerRegister'])->name('customer.register');
 Route::post('/customer/logout', [CustomerAuthController::class, 'customerLogout'])->name('customer.logout');
 
 
@@ -74,4 +78,9 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
     Route::post('/product/update/{id}',[ProductController::class,'update'])->name('product.update');
     Route::get('/product/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
+
+    Route::get('/admin/manage-order',[AdminOrderController::class,'manage'])->name('admin.manage-order');
+    Route::get('/admin/order-details/{id}',[AdminOrderController::class,'details'])->name('admin.order-details');
+    Route::get('/admin/order-invoice/{id}',[AdminOrderController::class,'invoice'])->name('admin.order-invoice');
+    Route::get('/admin/order-delete/{id}',[AdminOrderController::class,'delete'])->name('admin.order-delete');
 });
